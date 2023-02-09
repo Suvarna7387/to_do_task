@@ -10,6 +10,7 @@ import './Home.css'
 const Home = () => {
 
     const [data, setData] = useState([...Employees]);
+    // const [data, setData] = useState(Employees);
 
     let history = useNavigate();
 
@@ -21,13 +22,14 @@ const Home = () => {
         localStorage.setItem('Id', id);
     }
 
+    
     // #DELETE Operation
     const handleDelete = (id) => {
-        let index = Employees.map((e) => {
+        let index = data.map((e) => {
             return e.id
         }).indexOf(id);
 
-        Employees.splice(index, 1);
+        data.splice(index, 1);
         history('/');
     }
 
@@ -42,7 +44,7 @@ const Home = () => {
 
 
     return (
-        <Fragment>
+        <Fragment> 
             <div className="container text-center">
                 <h1 className="m-5">To-Do List</h1>
                 <div className="filter">
@@ -50,7 +52,7 @@ const Home = () => {
                         <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filter data
                         </button>
-                        <div className="dropdown-menu dropdownMenu" style={{ width: '20%' }} aria-labelledby="dropdownMenuButton">
+                        <div className="dropdown-menu dropdownMenu" style={{ width: '20%' }} aria-labelledby="dropdownMenuButton" >
                             <span className="dropdown-item " onClick={() => sorting("name")}>By Name</span>
                             <span className="dropdown-item " onClick={() => sorting("age")}>By Age</span>
                         </div>
