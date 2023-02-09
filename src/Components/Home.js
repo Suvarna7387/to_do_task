@@ -74,14 +74,14 @@ const Home = () => {
                                                 {item.Name}
                                             </td>
                                             <td>
-                                                {item.date}
+                                                {item.Date}
                                             </td>
                                             <td>
                                                 {item.Age}
                                             </td>
                                             <td>
                                                 <Link to={`/edit`}>
-                                                    <Button variant="success" onClick={() => handleEdit( item.id,item.Name, item.date, item.Age)}>Edit</Button>
+                                                    <Button variant="success" onClick={() => handleEdit( item.id,item.Name, item.Date, item.Age)}>Edit</Button>
                                                 </Link>
 
                                                 <Button className="mx-2" variant="danger" onClick={() => handleDelete(item.id)}>Delete</Button>
