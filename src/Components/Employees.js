@@ -1,27 +1,27 @@
 const Employees= [
     {
         id: "1",
-        Name: "Suvarna Keskar",
-        Date: "23-07-2022",
-        Age: "25"
+        name: "Suvarna Keskar",
+        date: "23-07-2022",
+        age: "25"
     },
     {
         id: "2",
-        Name: "Jana Shinde",
-        Date: "30-10-2022",
-        Age: "26"
+        name: "Jana Shinde",
+        date: "30-10-2022",
+        age: "26"
     },
     {
         id: "3",
-        Name: "Ankita Warole",
-        Date: "15-04-2022",
-        Age: "28"
+        name: "Ankita Warole",
+        date: "15-04-2022",
+        age: "28"
     },
     {
         id: "4",
-        Name: "Namrata Shinde",
-        Date: "25-12-2022",
-        Age: "20"
+        name: "Namrata Shinde",
+        date: "25-12-2022",
+        age: "20"
     }
 ]
 

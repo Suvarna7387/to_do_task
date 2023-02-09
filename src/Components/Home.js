@@ -37,15 +37,14 @@ const Home = () => {
                 <h1 className="m-5">To-Do List</h1>
                 <div className="filter">
                 <div className="dropdown filter-dropdown">
-  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Filter data
-  </button>
-  <div className="dropdown-menu dropdownMenu" style={{width: '20%'}}   aria-labelledby="dropdownMenuButton">
-    <span className="dropdown-item " >By Name</span>
-  </div>
-</div>
+                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter data
+                 </button>
+                <div className="dropdown-menu dropdownMenu" style={{width: '20%'}}   aria-labelledby="dropdownMenuButton">
+               <span className="dropdown-item " >By Name</span>
+             </div>
+             </div>
                 </div>
-                
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -71,17 +70,17 @@ const Home = () => {
                                     return (
                                         <tr>
                                             <td>
-                                                {item.Name}
+                                                {item.name}
                                             </td>
                                             <td>
-                                                {item.Date}
+                                                {item.date}
                                             </td>
                                             <td>
-                                                {item.Age}
+                                                {item.age}
                                             </td>
                                             <td>
                                                 <Link to={`/edit`}>
-                                                    <Button variant="success" onClick={() => handleEdit( item.id,item.Name, item.Date, item.Age)}>Edit</Button>
+                                                    <Button variant="success" onClick={() => handleEdit( item.id,item.name, item.date, item.age)}>Edit</Button>
                                                 </Link>
 
                                                 <Button className="mx-2" variant="danger" onClick={() => handleDelete(item.id)}>Delete</Button>
@@ -91,7 +90,6 @@ const Home = () => {
                                 })
                                 :
                                 "No data available"
-                               
                         }
 
                     </tbody>

@@ -24,12 +24,12 @@ const Create = () =>{
         let c = date;
 
         //Push the users to array (Employees.js)
-        Employees.push({id: uniqueId, Name: a, Date: c, Age: b});
+        Employees.push({id: uniqueId, name: a, date: c, age: b});
         history('/');
-      
-
     }
-    return <div className="container text-center my-5 p-5">
+
+    return (
+    <div className="container text-center my-5 p-5">
         <h1 className="m-5">Create Users</h1>
             <form className="row g-3 align-items-center" onSubmit={(e)=>handleSubmit(e)}>
                 <div className="mb-3">
@@ -46,6 +46,6 @@ const Create = () =>{
                 </div>
             </form>
         </div>
-
+)
 }
 export default Create;
