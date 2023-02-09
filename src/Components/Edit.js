@@ -35,20 +35,20 @@ function Edit(){
     },[]);  
 
     return(
-        <div className="container text-center my-5 p-5">
-            <h1 className="m-5">Edit Users</h1>
+        <div className="container text-center  p-5">
+            <h1 className="m-5">Edit To-do</h1>
             <form className="row g-3 align-items-center">
                 <div className="mb-3">
-                    <input className="w-25" id="demo" type="text" placeholder="Enter Name" value={name} onChange={(e)=> setName(e.target.value)}  required></input>
+                    <input className="w-100" id="demo" type="text" placeholder="Enter Name" value={name} onChange={(e)=> setName(e.target.value)}  required></input>
                 </div>
                 <div className="mb-3" >
-                    <input className="w-25" type="text" placeholder="Enter date" value={date} onChange={(e)=> setDate(e.target.value)} required></input>
+                    <input className="w-100" type="text" placeholder="Enter date" value={date} onChange={(e)=> setDate(e.target.value)} required></input>
                 </div>
                 <div className="mb-3">
-                    <input className="w-25" type="number" placeholder="Enter Age" value={age} onChange={(e)=> setAge(e.target.value)} required></input>
+                    <input className="w-100" type="number" placeholder="Enter Age" value={age} onChange={(e)=> setAge(e.target.value)} required></input>
                 </div>
                 <div className="mb-3">
-                <button className="button bg-primary w-25" onClick={handleSubmit}>Update User</button>
+                <button className="btn btn-primary btn-lg btn-block mt-5" onClick={handleSubmit}>Update</button>
                 </div>
             </form>
         </div>

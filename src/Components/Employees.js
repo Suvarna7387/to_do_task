@@ -1,27 +1,27 @@
 const Employees= [
     {
         id: "1",
-        name: "Suvarna Keskar",
+        name: "Ms Dhoni",
         date: "23-07-2022",
-        age: "25"
+        age: "35"
     },
     {
         id: "2",
-        name: "Jana Shinde",
+        name: "Virat Kohli",
         date: "30-10-2022",
-        age: "26"
+        age: "30"
     },
     {
         id: "3",
-        name: "Ankita Warole",
+        name: "Rohit Sharma",
         date: "15-04-2022",
         age: "28"
     },
     {
         id: "4",
-        name: "Namrata Shinde",
+        name: "Hardik Pandya",
         date: "25-12-2022",
-        age: "20"
+        age: "32"
     }
 ]
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Button, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -8,11 +8,13 @@ import './Home.css'
 
 
 const Home = () => {
-  
+
+    const [data, setData] = useState([...Employees]);
+
     let history = useNavigate();
-    
+
     //#Edit Operation
-    const handleEdit = (id, name,date, age) => {
+    const handleEdit = (id, name, date, age) => {
         localStorage.setItem('Name', name);
         localStorage.setItem('date', date);
         localStorage.setItem('Age', age);
@@ -22,29 +24,39 @@ const Home = () => {
     // #DELETE Operation
     const handleDelete = (id) => {
         let index = Employees.map((e) => {
-            return e.id 
+            return e.id
         }).indexOf(id);
 
         Employees.splice(index, 1);
         history('/');
     }
 
- 
-    
+    // Sort Operation
+    const sorting = (col) => {
+        const sorted = [...data].sort((a, b) =>
+            a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+        );
+        setData(sorted);
+    }
+
+
+
     return (
         <Fragment>
             <div className="container text-center">
                 <h1 className="m-5">To-Do List</h1>
                 <div className="filter">
-                <div className="dropdown filter-dropdown">
-                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Filter data
-                 </button>
-                <div className="dropdown-menu dropdownMenu" style={{width: '20%'}}   aria-labelledby="dropdownMenuButton">
-               <span className="dropdown-item " >By Name</span>
-             </div>
-             </div>
+                    <div className="dropdown filter-dropdown">
+                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filter data
+                        </button>
+                        <div className="dropdown-menu dropdownMenu" style={{ width: '20%' }} aria-labelledby="dropdownMenuButton">
+                            <span className="dropdown-item " onClick={() => sorting("name")}>By Name</span>
+                            <span className="dropdown-item " onClick={() => sorting("age")}>By Age</span>
+                        </div>
+                    </div>
                 </div>
+
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -64,11 +76,11 @@ const Home = () => {
                     </thead>
                     <tbody>
                         {
-                        Employees && Employees.length > 0
+                            data && data.length > 0
                                 ?
-                                Employees.map((item) => {
+                                data.map((item,index) => {
                                     return (
-                                        <tr>
+                                        <tr key={index}>
                                             <td>
                                                 {item.name}
                                             </td>
@@ -80,7 +92,7 @@ const Home = () => {
                                             </td>
                                             <td>
                                                 <Link to={`/edit`}>
-                                                    <Button variant="success" onClick={() => handleEdit( item.id,item.name, item.date, item.age)}>Edit</Button>
+                                                    <Button variant="success" onClick={() => handleEdit(item.id, item.name, item.date, item.age)}>Edit</Button>
                                                 </Link>
 
                                                 <Button className="mx-2" variant="danger" onClick={() => handleDelete(item.id)}>Delete</Button>
@@ -90,6 +102,7 @@ const Home = () => {
                                 })
                                 :
                                 "No data available"
+
                         }
 
                     </tbody>
