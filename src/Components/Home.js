@@ -10,7 +10,6 @@ import './Home.css'
 const Home = () => {
 
     const [data, setData] = useState([...Employees]);
-    // const [data, setData] = useState(Employees);
 
     let history = useNavigate();
 
